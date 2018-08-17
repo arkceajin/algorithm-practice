@@ -1,18 +1,13 @@
-#include <iostream>
-#include <array>
+#include "test.h"
 #include "bubblesort.h"
 
 int main()
 {
-    std::array<int, 10> s = {5, 7, 4, 2, 8, 6, 1, 9, 0, 3};
-    bubbleSort2(s.begin(), s.end());
-//    for(auto i = 0; i < s.size(); i++)
-//        std::cout << s.at(i) << " ";
+    auto testData = createRandomData(10000);
 
-    std::cout << std::endl;
+    sortingTest(bubbleSort, testData);
+    sortingTest(bubbleSort2, testData);
+    sortingTest(bubbleSort3, testData);
 
-    for (auto a : s) {
-        std::cout << a << " ";
-    }
     return 0;
 }

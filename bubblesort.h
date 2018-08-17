@@ -2,12 +2,14 @@
 #define BUBBLESORT_H
 
 #include <algorithm>
-#include <functional>
 
+/**
+ * I'm not sure this is bubble sort or not, After
+ */
 template <class T, class U = std::greater<>> // std::greater<> require C++14
 void bubbleSort(T begin, T end, U comp = U())
 {
-    for(auto i = end - 1; i != begin; i--) {
+    for(auto i = end - 1; i >= begin; i--) {
         for(auto j = begin; j != i; j++) {
             if(comp(*j, *i)) {
                 std::swap(*j, *i);
@@ -34,6 +36,19 @@ void bubbleSort2(T begin, T end, U comp = U())
             }
         }
         low++;
+    }
+}
+
+template <class T, class U = std::greater<>> // std::greater<> require C++14
+void bubbleSort3(T begin, T end, U comp = U())
+{
+    while(end != begin) {
+        for(auto i = std::next(begin); i != end; ++i) {
+            if(comp(*(i - 1), *i)) {
+                std::swap(*(i - 1), *i);
+            }
+        }
+        end--;
     }
 }
 
