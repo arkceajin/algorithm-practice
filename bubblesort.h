@@ -4,7 +4,7 @@
 #include <algorithm>
 
 /**
- * I'm not sure this is bubble sort or not, After
+ * I'm not sure this is bubble sort or not
  */
 template <class T, class U = std::greater<>> // std::greater<> require C++14
 void bubbleSort(T begin, T end, U comp = U())

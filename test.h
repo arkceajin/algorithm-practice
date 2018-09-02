@@ -31,7 +31,8 @@ std::vector<int> createRandomData(int n) {
     t = clock(); \
     _sortFunc(d.begin(), d.end()); \
     std::cout<<"test sort time: "<<((double)(clock() - t) / CLOCKS_PER_SEC)<<std::endl; \
-    if(d == d1) std::cout<<"sort correct"<<std::endl; \
+    if(d == d1) { std::cout<<"sort correct"<<std::endl; } \
+    else { for(auto i : d) std::cout<< i <<" "; } \
     std::cout<<std::endl; \
 }();
 
