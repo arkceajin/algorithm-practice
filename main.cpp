@@ -2,6 +2,7 @@
 #include "bubblesort.h"
 #include "selectionsort.h"
 #include "insertionsort.h"
+#include "quicksort.h"
 
 int main()
 {
@@ -14,6 +15,8 @@ int main()
     sortingTest(selectionSort, testData);
 
     sortingTest(insertionSort, testData);
+
+    sortingTest(quickSort, testData);
 
     return 0;
 }
