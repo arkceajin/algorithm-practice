@@ -9,18 +9,16 @@ void quickSort(const T& begin, const T& end, U comp = U()) {
         return;
     }
 
-    T key = begin;
-    T i = std::next(key);
-    while (i != end) {
-        if(comp(*i, *key)) {
-            std::rotate(key, i, i + 1);
-            key++;
-        }
-        i++;
-    }
+    auto pivot = *std::next(begin, std::distance(begin, end)/2);
+    auto leftMiddle = std::partition(begin, end, [pivot, comp](const auto& em){
+        return comp(em, pivot);
+    });
+    auto rightMiddle = std::partition(begin, end, [pivot, comp](const auto& em){
+        return !comp(pivot, em);
+    });
 
-    quickSort(begin, key);
-    quickSort(key + 1, end);
+    quickSort(begin, leftMiddle);
+    quickSort(rightMiddle, end);
 }
 
 #endif // QUICKSORT_H
